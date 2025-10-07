@@ -6,15 +6,13 @@ import base64
 from fpdf import FPDF # Using the standard fpdf library
 
 
-OPENROUTER_API_KEY = f"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"
-
 # --- PROFESSIONAL: API Key Configuration via Streamlit Secrets ---
-# try:
-#     OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
-# except (FileNotFoundError, KeyError):
-#     st.error("🔴 ERROR: OPENROUTER_API_KEY not found. Please add it to your Streamlit secrets.")
-#     st.info("Create a file at .streamlit/secrets.toml and add the line: OPENROUTER_API_KEY = 'your_key_here'")
-#     st.stop()
+try:
+    OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+except (FileNotFoundError, KeyError):
+    st.error("🔴 ERROR: OPENROUTER_API_KEY not found. Please add it to your Streamlit secrets.")
+    st.info("Create a file at .streamlit/secrets.toml and add the line: OPENROUTER_API_KEY = 'your_key_here'")
+    st.stop()
 
 
 # --- API Client Initialization ---
